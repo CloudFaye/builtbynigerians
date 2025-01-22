@@ -1,12 +1,20 @@
+// @ts-nocheck
 import { db } from './db';
 import { directory } from './schema';
 
-// Inserting a new listing
-export const getListings = async () => {
-    (await db.select().from(directory));
+// Insert a new listing
+export const insertListing = async (name: string, image: string, category: string, details: string) => {
+    const created = new Date().toISOString();
+    await db.insert(directory).values({ name, image, category, details, created }).execute();
 };
-(async () => {
-    
-    const listings = await getListings();
-    console.log(listings);
-})();
+
+// Get all listings
+export const getListings = async () => {
+    return (await db.select().from(directory)).entries();
+};
+
+// Example usage
+//(async () => {
+ //   await insertListing( 'bbn', '', 'webapp', 'details');
+ //   const listings = await getListings();
+ //   console.log(listings);
