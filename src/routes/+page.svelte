@@ -24,7 +24,7 @@ import Sidebar from "$lib/components/Sidebar.svelte";
 <div class="main-wrapper flex relative ">
     
 <Sidebar />
-<div class="w-full badge grid grid-cols-2 gap-4 px-[20px] pt-[52px] md:grid-cols-4 md:ml-[360px] md:px-[40px] md:pt-[64px]  ">
+<div class="w-full badge grid grid-cols-1 gap-4 px-[20px] pt-[52px] sm:grid-cols-2 md:grid-cols-4 md:ml-[360px] md:px-[40px] md:pt-[64px]  ">
 
    
   <!-- <form method="POST" >
