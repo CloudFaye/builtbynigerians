@@ -43,10 +43,10 @@ import Sidebar from "$lib/components/Sidebar.svelte";
 
   {#each listings as listing}
 
-  <div class="flex rounded-[18px] flex-col items-start p-4 w-full h-fit border-4 border-double border-slate-200 hover:border-slate-400 ">
+  <div class="flex rounded-[18px] text-[14px] font-semibold md:text-[16px] md:font-semibold flex-col items-start p-4 w-full h-fit border-4 border-double border-slate-200 hover:border-slate-400 ">
     <img class='w-[32px] h-[32px] ' src={listing.image} alt=""> <br>
-    <p class='mb-2 text-[14px] font-semibold md:text-[16px] md:font-semibold'>{listing.name}</p> 
-    <p class='mb-4 px-[12px] py-[4px] text-[13px] md:text-[14px] bg-yellow-400 rounded-[200px] '>{listing.category}</p> 
+    <p class='mb-2 '>{listing.name}</p> 
+    <p class='mb-4 px-[12px] py-[4px]  bg-yellow-400 rounded-[200px] '>{listing.category}</p> 
     <p class=' '> {listing.details}</p>
    
     
