@@ -77,5 +77,8 @@
 
 @font-face {
   font-family: 'TUSKER';
-  src: url(./TuskerGrotesk-3600Semibold.CvVxgK86.ttf) format('truetype');
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400, 500, 600, ;
+  src: url('$lib/fonts/TuskerGrotesk-3600Semibold.CvVxgK86.ttf') format('truetype');
 }
