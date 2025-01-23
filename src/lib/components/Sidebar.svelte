@@ -7,7 +7,7 @@
 </script>
 
 
-<div class="fixed p-6 h-full w-[340px] bg-white border-r-2 border-slate-100  ">
+<div class="fixed nav p-6 h-full w-[340px] bg-white border-r-2 border-slate-100  ">
 
     <div class=" font-tusker text-[60px] tracking-wide  leading-[64px] font-bold mb-6">
        BUILT BY  <br> NIGERIANS
@@ -34,7 +34,9 @@
 
 
 <style lang="postcss">
-     .badge {
+@media (min-width: 768px) {
+
+   .badge {
         visibility: hidden;
     }
 
@@ -51,6 +53,12 @@
 .badge{ 
    cursor: pointer;
 }
+   
+  }
+
+
+
+
 
 
 
@@ -61,6 +69,16 @@
       background-color: rgb(234, 236, 239);
       padding: 4px 12px;
       border-radius: 40px;
+}
+
+.nav{
+   visibility: hidden;
+}
+
+@media (min-width: 768px) {
+  .nav {
+   visibility: visible;
+  }
 }
 </style>
 

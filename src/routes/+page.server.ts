@@ -1,21 +1,30 @@
 import { db } from "$lib/server/db/db";
-import { asc } from "drizzle-orm";
+import { asc, eq, sql } from "drizzle-orm";
 import type { Actions, PageServerLoad } from "./$types";
 import { directory } from "$lib/server/db/schema";
 
 
 //function to query database to return all data
 export const load: PageServerLoad = async () => {
-   //const created = new Date().toISOString();
-   const listings = await db.query.directory.findMany({
-    orderBy: [asc(directory.id)]
-   });
+   //get all
+   const allListings = await db.query.directory.findMany({
+    orderBy: [asc(directory.name)]
+   })
+   let created = new Date().toISOString();
+   const updateListings = await db.update(directory)
+    .set({ details: 'Portfolio inspired game for designers to trade design stocks' })
+    .where(eq(directory.details, 'Fun design games by Faye'))
+    .returning({updatedDetails: directory.details})
 
-   return { listings }
+   return { allListings }
+
+   
+   
 };
 
 
-//function to handle forms
+
+//function to handle CRUD operations through forms
 export const actions: Actions = {
    default: async ({ request }) => {
       const data = await request.formData();
@@ -35,9 +44,7 @@ export const actions: Actions = {
          created, 
          details 
       })
-   },
-  
+   }
+  };
 
 
-
-};
