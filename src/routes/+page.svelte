@@ -13,7 +13,7 @@ import Sidebar from "$lib/components/Sidebar.svelte";
 
 
   const listings = data.allListings
-  console.log(listings);
+  //console.log(listings);
 
   
 
