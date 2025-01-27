@@ -67,8 +67,7 @@ const config: Config = {
 				sm: "calc(var(--radius) - 4px)"
 			},
 			fontFamily: {
-				sans: [...fontFamily.sans],
-				"tusker": ["TUSKER", 'sans-serif'],
+				sans: [...fontFamily.sans]
 			},
 			keyframes: {
 				"accordion-down": {
