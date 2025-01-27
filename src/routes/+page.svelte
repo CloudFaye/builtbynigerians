@@ -12,9 +12,9 @@ let filteredListings = data.allListings;
 
 
 
-//function to filter listings based on search term 
+//function to filter listings based on search term
 $: filteredListings = searchTerm
-  ? data.allListings.filter( listing => 
+  ? data.allListings.filter( listing =>
     listing.name.toLowerCase().includes(searchTerm.toLowerCase())
   )
   : data.allListings;
@@ -31,15 +31,15 @@ let mouseX = 0;
 let mouseY = 0;
 let scrollY = 0;
 
-// function to handle mouse movement 
+// function to handle mouse movement
 function handleMouseMove(event: { clientX: number; clientY: number; }){
   mouseX = event.clientX;
   mouseY = event.clientY;
   updateCardPositions();
-  
+
 }
 
- 
+
 
 
 
@@ -74,22 +74,17 @@ function updateCardPositions(){
     };
   });
 
- 
+
 
 
 
 </script>
 
-<div class="main-wrapper min-h-[500vh] flex p-10 pt-40 flex-col items-center justify-start relative ">
+<div class="main-wrapper min-h-[500vh] flex p-4 pt-16 flex-col items-center justify-start relative ">
     
-<h1 class=" w-[50%] text-[64px] 
-text-white
-tracking-tighter 
-text-balance leading-[72px] text-center mb-4 ">250+ Directories to submit your designs to</h1>
-<p class='text-lg 
-text-white
- font-medium mb-3'>Explore the best directories to showcase your designs. </p>
-<div class="flex mt-2 flex-row gap-2">
+<h1 class='header' >250+ Directories to submit your designs to</h1>
+<p class='paras'>Explore the best directories to showcase your designs. </p>
+<div class="button-group">
   <Button class='h-[48px]' variant='secondary'>Get this list</Button>
 <Button class='h-[48px]' >
   <Mail class="mr-2 size-4" />Submit for me</Button>
@@ -112,10 +107,10 @@ text-white
 
 <div class="mt-[400px] w-full ">
   <div class=" flex flex-col items-center justify-center ">
-    <h1 class=' w-[45%] gap-6 text-[52px] tracking-tight text-balance text-center leading-[64px] text-white  '> So you've completed that amazing design, or project
+    <h1 class=' w-full gap-6  tracking-tight text-balance  text-white  '> So you've completed that amazing design, or project
       , How to show it off? Like a true designer ? <br>
       <span>
-        <p class=' text-[24px] mt-6 leading-[32px] text-balance tracking-tight text-white'>
+        <p class=' ] mt-6  text-white'>
           Very often, we as web artisans fatigued very fast when it comes to posting your works on social media and where it matters
         </p>
       </span>
@@ -125,31 +120,31 @@ text-white
     </select>
     <!-- option component-->
   </div>
-  <div class="man badge align-top mt-20 ">
-  
+  <div class="man align-top badge ">
+
    {#each filteredListings as listing}
-      
-       
+
+
           <a href={`/${listing.id}`} class=" block bg-[#ffffff06] p-8 hover:bg-[#ffffff13] rounded-[16px] ">
-            
-             <img class=' rounded-[18px] image bg-gray-900 ' src={listing.image} alt=""> 
-              
-              
+
+             <img class=' rounded-[18px] image bg-gray-900 ' src={listing.image} alt="">
+
+
                 <div class="h-fit text-white short">
                   <h1 class='mb-2 text-xl '>{listing.name}</h1>
                   <p>{listing.url}</p>
-                  
+
               </div>
-         
+
           </a>
 
-        
-      
+
+
        {/each}
-  
-      
+
+
   </div>
-  
+
 </div>
 
 
@@ -173,6 +168,7 @@ text-white
 
 
 @media (min-width: 768px){
+
   .badge {
        visibility: hidden;
    }
@@ -187,7 +183,7 @@ text-white
 
   .badge > *:hover { opacity: 1;  transition-delay: 0ms, 0ms;}
 
-.badge{ 
+.badge{
   cursor: pointer;
 }
 
@@ -207,27 +203,44 @@ img {
   border-radius: 8px;
   width: 100%;
   object-fit: cover;
-  
-  
+
+
 }
 
 .man{
- 
-  
- 
+
   width: 100%;
   color: white;
-  gap: 72px;
-  padding: 0px 72px;
-  
-  column-count: 3;
+  gap: 24px;
+  padding: 0px 8px;
+
+  column-count: 1;
   place-items: start;
- 
-  
-  
 
 }
 
+
+@media (min-width: 500px) {
+  .man {
+    column-count: 2;
+    place-items: start;  /* 2 columns from 500px */
+  }
+}
+
+@media (min-width: 800px) {
+  .man {
+    column-count: 3; 
+    place-items: start; /* 3 columns from 800px */
+  }
+}
+
+@media ( min-width: 1200px) {
+  .man {
+    column-count: 4; 
+    place-items: start;
+    padding: 0px 24px; /* 3 columns from 800px */
+  }
+}
 .image {
   height: 100%;
   margin-bottom: 16px;
@@ -241,9 +254,65 @@ border-radius: 8px;
 
 
  a {
-  margin-bottom: 72px;
+  margin-bottom: 40px;
   width: 100%;
  }
 
+ .header {
+text-wrap: balance;
+font-size: 48px;
+color: white;
+text-align: center;
+line-height: 56px;
+margin-bottom: 12px ;
+font-weight: 700;
+
+ }
+
+ @media (min-width: 500px) and (max-width: 800px)  {
+  .header {
+    font-size: 56px;
+    line-height: 64px;
+    font-weight: 700;
+  }
+}
+
+
+@media (min-width: 850px){
+  .header {
+    font-size: 72px;
+    line-height: 80px;
+    font-weight: 700;
+  }
+}
+
+
+.paras {
+  font-size: 18px;
+  color: white;
+  text-align: center;
+  font-weight: 400;
+  margin-bottom: 12px;
+}
+
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 12px;
+  flex-direction: column;
+}
+
+@media (min-width: 500px) and (max-width: 3000px) {
+  .button-group {
+    flex-direction: row;
+    display: flex;
+    gap: 24px;
+    margin-top: 24px;
+  }
+}
 </style>
 
+
+
+ 
