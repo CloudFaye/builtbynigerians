@@ -218,7 +218,7 @@ img {
   width: 100%;
   color: white;
   gap: 72px;
-  padding: 0px 272px;
+  padding: 0px 72px;
   
   column-count: 3;
   place-items: start;
