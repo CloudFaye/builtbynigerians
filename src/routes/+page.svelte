@@ -106,18 +106,15 @@ function updateCardPositions(){
 </div> -->
 
 <div class="mt-[400px] w-full ">
-  <div class=" flex flex-col items-center justify-center ">
-    <h1 class=' w-full gap-6  tracking-tight text-balance  text-white  '> So you've completed that amazing design, or project
+  <div class=" mb-[100px] px-[10%] flex flex-col items-center justify-center ">
+    <h1 class=' text-left text-5xl w-full gap-6 leading-[56px]  tracking-tight text-balance  text-white  '> So you've completed that amazing design, or project
       , How to show it off? Like a true designer ? <br>
       <span>
-        <p class=' ] mt-6  text-white'>
+        <p class=' text-5xl text-balance leading-[56px] mt-6  text-gray-500'>
           Very often, we as web artisans fatigued very fast when it comes to posting your works on social media and where it matters
         </p>
       </span>
     </h1>
-    <select class='w-fit' name="" id="">
-      <option value="val 1">1</option>
-    </select>
     <!-- option component-->
   </div>
   <div class="man align-top badge ">

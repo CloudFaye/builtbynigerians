@@ -25,11 +25,17 @@ export const load: PageServerLoad = async () => {
     const allListings = await db.query.directory.findMany({
     orderBy: [asc(directory.name)]});
 
-      // Only process one empty image at a time to avoid API spam
-      const emptyImageListing = allListings.find(listing => !listing.image);
-      if (emptyImageListing) {
-         await updateListingImage(emptyImageListing.id, emptyImageListing.url);
-      }
+      // i changed this from Only process one empty image at a time to avoid API spam to parallel checking
+      const emptyImageListings = allListings.filter(listing => !listing.image);
+      const promises = emptyImageListings.map(listing => {
+         return new Promise<void>(async (resolve) => { // Add 'void' type argument to Promise
+         setTimeout(async () => {
+            await updateListingImage(listing.id, listing.url);
+            resolve();
+         }, 5000); // 1 second delay between API calls
+         });
+      });
+      await Promise.all(promises);
 
       
 
