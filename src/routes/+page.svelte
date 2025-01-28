@@ -125,7 +125,7 @@ function updateCardPositions(){
    {#each filteredListings as listing}
 
 
-          <a href={`/${listing.id}`} class=" block bg-[#ffffff06] p-8 hover:bg-[#ffffff13] rounded-[16px] ">
+          <a href={`/${listing.id}`} class=" block bg-[#ffffff10] p-8 hover:bg-[#ffffff16] rounded-[16px] ">
 
              <img class=' rounded-[18px] image bg-gray-900 ' src={listing.image} alt="">
 

@@ -2,6 +2,7 @@ import { db } from "$lib/server/db/db";
 import { Column, asc, eq } from "drizzle-orm";
 import type { Actions, PageServerLoad } from "./$types";
 import { directory } from "$lib/server/db/schema";
+import { error, fail } from "@sveltejs/kit";
 
 
 
@@ -70,10 +71,11 @@ export const actions: Actions = {
          })
        
  
-      return { success: true }
+      return { success: true
+      }
  
       
-    }
+   }
    };
 
 //get logos from each listing website
@@ -91,6 +93,7 @@ export const actions: Actions = {
       return null;
    }
    }; */
+
 
 
 
